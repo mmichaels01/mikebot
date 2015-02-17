@@ -1,0 +1,21 @@
+import sys
+import time
+import picamera
+from twython import Twython
+from TwitterKeys import TwitterKeys
+
+
+#twitter=Twython(TwitterKeys.CONSUMER_KEY,TwitterKeys.CONSUMER_SECRET, TwitterKeys.ACCESS_KEY,TwitterKeys.ACCESS_SECRET)
+#twitter.update_status(status=sys.argv[1])
+
+timestr=str(int(time.time()))
+path='/home/pi/img/'+timestr+'.jpg'
+with picamera.PiCamera() as camera:
+	camera.capture(path)
+twitter=Twython(TwitterKeys.CONSUMER_KEY,TwitterKeys.CONSUMER_SECRET,TwitterKeys.ACCESS_KEY, TwitterKeys.ACCESS_SECRET)
+time.sleep(5)
+print("Wait")
+
+photo=open(path, 'rb')
+time.sleep(5)
+twitter.status_update_with_media(photo,status=arrgv[1])photo.close()
