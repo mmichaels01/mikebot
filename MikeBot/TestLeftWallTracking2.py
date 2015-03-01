@@ -18,7 +18,6 @@ debug_time = 1
 try:
     frontSonar = Sonar(Ports.FRONT_SONAR_TRIGGER, Ports.FRONT_SONAR_ECHO)
     leftSonar = Sonar(Ports.LEFT_SONAR_TRIGGER, Ports.LEFT_SONAR_ECHO)
-    rightSonar = Sonar(Ports.RIGHT_SONAR_TRIGGER, Ports.RIGHT_SONAR_ECHO)
     frontSonarServo = Servo(Ports.FRONT_SONAR_SERVO)
     leftWheel = DCWheel(Ports.LEFT_WHEEL)
     rightWheel = DCWheel(Ports.RIGHT_WHEEL)
@@ -29,7 +28,6 @@ try:
 
     frontDistanceStart = frontSonar.GetDistanceInches()
     leftDistanceStart = leftSonar.GetDistanceInches()
-    rightDistanceStart = rightSonar.GetDistanceInches()
 
 
 
@@ -39,20 +37,16 @@ try:
         rightWheelOnTime = 0.02
         frontDistance = frontSonar.GetDistanceInches()
         leftDistance = leftSonar.GetDistanceInches()
-        rightDistance = rightSonar.GetDistanceInches()
         print ("Left-Start: " + str(leftDistanceStart))
         print ("Left: " + str(leftDistance))
-        print ("Front-Start: " + str(frontDistanceStart))
-        print ("Front: " + str(frontDistance))
-        print ("Right-Start: " + str(frontDistanceStart))
-        print ("Right: " + str(frontDistance))
-
-        if(leftDistance < 2 or frontDistance < 2 or rightDistance < 2):
-            print("Object too close")
-            print("LeftDist="+str(leftDistance))
-            print("FrontDist="+str(frontDistance))
-            print("RightDist="+str(rightDistance))
-            break
+        print ("Fr-Start: " + str(frontDistanceStart))
+        print ("Fr: " + str(frontDistance))
+        
+	if(leftDistance < 2 || frontDistance < 2):
+		print("Object too close")
+		print("LeftDist="+leftDistance)
+		print("FrontDist="+frontDistance)
+		break
        
         now = time.time()
         #Left wall is getting further

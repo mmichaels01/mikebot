@@ -20,8 +20,8 @@ try:
     leftSonar = Sonar(Ports.LEFT_SONAR_TRIGGER, Ports.LEFT_SONAR_ECHO)
     rightSonar = Sonar(Ports.RIGHT_SONAR_TRIGGER, Ports.RIGHT_SONAR_ECHO)
     frontSonarServo = Servo(Ports.FRONT_SONAR_SERVO)
-    leftWheel = DCWheel(Ports.LEFT_DC_WHEEL)
-    rightWheel = DCWheel(Ports.RIGHT_DC_WHEEL)
+    leftWheel = DCWheel(Ports.LEFT_WHEEL)
+    rightWheel = DCWheel(Ports.RIGHT_WHEEL)
 
 
     #Slowly rotate from start to 150 deg

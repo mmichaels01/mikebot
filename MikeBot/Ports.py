@@ -6,8 +6,8 @@ class Ports:
     	RIGHT_SONAR_TRIGGER = 18
     	RIGHT_SONAR_ECHO = 22
     	FRONT_SONAR_SERVO = 13
-    	LEFT_DC_WHEEL = 12
-    	RIGHT_DC_WHEEL = 16
+    	LEFT_WHEEL = 12
+    	RIGHT_WHEEL = 16
 	CAMERA_SERVO =10
 
     #frontSonar = Sonar(Ports.FRONT_SONAR_TRIGGER, Ports.FRONT_SONAR_ECHO)

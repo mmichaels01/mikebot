@@ -15,8 +15,7 @@ class ServerSocket:
                 self.sock.bind(("", self.PORT))
 		while 1:
 			data = self.sock.recv(recv_buffer)
-			print(data)
-			
+			yield data
 			#while(buffer.find(delim)!= -1):
 			#	line, buffer= buffer.split('\n',1)
 			#	yield line
