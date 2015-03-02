@@ -47,7 +47,6 @@ try:
     sock = ServerSocket()
     for i in sock.readUDP():
         print(time.time())
-        float 
         if i.find('bot') != -1:
             print('bot started')
         if i.find('wheels') != -1:
