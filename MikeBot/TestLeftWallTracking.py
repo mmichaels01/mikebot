@@ -1,12 +1,13 @@
 import sys
 import os
+import RPi.GPIO as GPIO
+import time
+import traceback
 from Sonar import Sonar
 from Servo import Servo
 from Ports import Ports
 from DCWheel import DCWheel
-import RPi.GPIO as GPIO
-import time
-import traceback
+
 
 #Our board mode is board for all classes
 GPIO.setmode(GPIO.BOARD)
@@ -23,7 +24,7 @@ try:
     leftWheel = DCWheel(Ports.LEFT_WHEEL)
     rightWheel = DCWheel(Ports.RIGHT_WHEEL)
     #Slowly rotate from start to 150 deg
-    frontSonarServo.RotateTo(150)
+    frontSonarServo.RotateTo(180)
     #Turn off PWM so the servo stops twitching
     frontSonarServo.StopPWM()
 
@@ -52,12 +53,12 @@ try:
             print("LeftDist="+str(leftDistance))
             print("FrontDist="+str(frontDistance))
             print("RightDist="+str(rightDistance))
-            break
+            #break
        
         now = time.time()
         #Left wall is getting further
         #Are we turning inward or outward
-        while(time.time() - now < .4):
+        while(time.time() - now < .1):
             if(abs(leftDistance - leftDistanceStart) > 2):
                 #If the front distance on front is getting bigger, we are turning outward
                 if(frontDistance - frontDistanceStart > 2):

@@ -25,7 +25,7 @@ class Servo:
 
         #Start at 90 degrees
         self.angle = 90
-        self.rotationFrequency = .1
+        self.rotationFrequency = .01
         self.rotationDegrees = .1
 
 	self.RotateTo(self.angle)
